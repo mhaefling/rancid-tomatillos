@@ -5,7 +5,7 @@ function Movies({posters}) {
 
   const allPosters = posters.map(poster => {
     return (
-      <MoviePoster posterImage={poster.poster_path} voteCount={poster.voteCount} id={poster.id} key={poster.id}/>
+      <MoviePoster posterImage={poster.poster_path} voteCount={poster.vote_count} id={poster.id} key={poster.id}/>
     )
   });
 

@@ -7,6 +7,7 @@ import moviePosters from '../data/movie_posters';
 import movieDetails from '../data/movie_details';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 
+
 function App() {
   return (
     <main className='App'>
