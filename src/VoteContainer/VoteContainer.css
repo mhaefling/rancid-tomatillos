@@ -1,0 +1,28 @@
+.VoteContainer {
+  background-color: white;
+  display: inline;
+  align-items: baseline;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+img {
+  height: 15px;
+  width: 15px;
+}
+
+p {
+  display: block;
+  color: black;
+  font-size: .75em;
+  background-color: white;
+  margin: 0px;
+  padding: 10px 0px 10px 0px;
+  align-items: baseline;
+  justify-content: center;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}

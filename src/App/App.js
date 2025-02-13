@@ -9,12 +9,18 @@ import MoviesContainer from '../MoviesContainer/MoviesContainer';
 
 
 function App() {
+  const [movies, setMovies] = useState(moviePosters)
+
+  function increaseVote() {
+    
+  }
+
   return (
     <main className='App'>
       <header>
         <h1>rancid tomatillos</h1>
       </header>
-      <MoviesContainer posters={moviePosters} />
+      <MoviesContainer posters={movies} />
     </main>
   );
 }
