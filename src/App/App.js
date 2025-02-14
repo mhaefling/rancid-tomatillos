@@ -9,12 +9,37 @@ import MoviesContainer from '../MoviesContainer/MoviesContainer';
 
 
 function App() {
+
+  const [movies, setMovies] = useState(moviePosters);
+
+  function increaseVote(id) {
+    const updatedMovies = movies.map(movie => {
+      if (movie.id === id) {
+        return { ...movie, vote_count: movie.vote_count + 1 }
+      } else {
+        return { ...movie, movie }
+      }
+    })
+    setMovies(updatedMovies)
+  }
+
+  function decreaseVote(id) {
+    const updatedMovies = movies.map(movie => {
+      if (movie.id === id) {
+        return { ...movie, vote_count: movie.vote_count - 1 }
+      } else {
+        return { ...movie, movie }
+      }
+    })
+    setMovies(updatedMovies)
+  }
+
   return (
     <main className='App'>
       <header>
         <h1>rancid tomatillos</h1>
       </header>
-      <MoviesContainer posters={moviePosters} />
+      <MoviesContainer moviePosters={movies} increaseVote={increaseVote} decreaseVote={decreaseVote} />
     </main>
   );
 }
