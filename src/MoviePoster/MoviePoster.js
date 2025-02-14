@@ -2,11 +2,13 @@ import './MoviePoster.css';
 import upVote from '../icons/upvote.png';
 import downVote from '../icons/downvote.png';
 
-function MoviePoster({posterImage, voteCount, id, increaseVote, decreaseVote}) {
+function MoviePoster({posterImage, voteCount, id, increaseVote, decreaseVote, showMovieDetails}) {
   
   return (
     <section className='MoviePoster'>
-      <img className="posterImage" src={posterImage} />
+      <button onClick={() => showMovieDetails(id)}>
+        <img className="posterImage" src={posterImage} />
+      </button>
       <p>
         <button onClick={() => increaseVote(id)}>
           <img className="voteButton" src={upVote} />

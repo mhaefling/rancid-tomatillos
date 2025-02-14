@@ -27,6 +27,10 @@ function Movies({moviePosters}) {
     setMovies(updatedMovies)
   };
 
+  function showMovieDetails(id) {
+
+  }
+
   const allPosters = movies.map(poster => {
     return (
       <MoviePoster 
@@ -35,6 +39,7 @@ function Movies({moviePosters}) {
         id={poster.id} 
         increaseVote={increaseVote} 
         decreaseVote={decreaseVote} 
+        showMovieDetails={showMovieDetails}
         key={poster.id}/>
     )
   });
@@ -42,6 +47,7 @@ function Movies({moviePosters}) {
   return (
       <section className='MoviesContainer'>
         {allPosters}
+        {/* MovieDetails  */}
       </section>
   );
 }
