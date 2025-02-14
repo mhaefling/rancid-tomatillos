@@ -1,13 +1,8 @@
 import './MovieDetails.css';
 
-function MovieDetails() {
+function MovieDetails({movieInfo}) {
   return (
     <section className='MovieDetails'>
-      {/* img backdrop_path
-      title
-      genres_ids
-      overview */}
-      <img></img>
       <p>Movie Details go here!</p>
     </section>
   );
