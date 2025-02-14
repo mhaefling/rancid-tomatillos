@@ -1,10 +1,12 @@
 import './MoviesContainer.css';
 import MoviePoster from '../MoviePoster/MoviePoster'
+import { useState, useEffect } from 'react';
 
-function Movies({moviePosters, setMovies}) {
+function Movies({moviePosters}) {
+  const [movies, setMovies] = useState(moviePosters);
 
   function increaseVote(id) {
-    const updatedMovies = moviePosters.map(movie => {
+    const updatedMovies = movies.map(movie => {
       if (movie.id === id) {
         return { ...movie, vote_count: movie.vote_count + 1 }
       } else {
@@ -15,7 +17,7 @@ function Movies({moviePosters, setMovies}) {
   };
 
   function decreaseVote(id) {
-    const updatedMovies = moviePosters.map(movie => {
+    const updatedMovies = movies.map(movie => {
       if (movie.id === id) {
         return { ...movie, vote_count: movie.vote_count - 1 }
       } else {
@@ -25,7 +27,11 @@ function Movies({moviePosters, setMovies}) {
     setMovies(updatedMovies)
   };
 
-  const allPosters = moviePosters.map(poster => {
+  const movie = function showMovieDetails(id) {
+    return movies.filter(movie => movie.id === id)
+  };
+
+  const allPosters = movies.map(poster => {
     return (
       <MoviePoster 
         posterImage={poster.poster_path} 
@@ -33,6 +39,7 @@ function Movies({moviePosters, setMovies}) {
         id={poster.id} 
         increaseVote={increaseVote} 
         decreaseVote={decreaseVote} 
+        showMovieDetails={movie}
         key={poster.id}/>
     )
   });
@@ -44,4 +51,4 @@ function Movies({moviePosters, setMovies}) {
   );
 }
   
-export default Movies;
+export default Movies; 
