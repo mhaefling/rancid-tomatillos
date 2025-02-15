@@ -26,3 +26,8 @@ p {
   margin-top: 50px;
   color: white;
 }
+
+.homeButton {
+  height: 45px;
+  width: 45px;
+}

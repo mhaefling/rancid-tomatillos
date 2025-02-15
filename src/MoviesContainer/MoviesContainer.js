@@ -1,9 +1,11 @@
 import './MoviesContainer.css';
-import MoviePoster from '../MoviePoster/MoviePoster'
 import { useState, useEffect } from 'react';
+import MoviePoster from '../MoviePoster/MoviePoster'
+import MovieDetails from '../MovieDetails/MovieDetails';
 
-function Movies({moviePosters}) {
+function Movies({moviePosters, movieDetails, showHome, home}) {
   const [movies, setMovies] = useState(moviePosters);
+  const [movie, setMovie] = useState([])
 
   function increaseVote(id) {
     const updatedMovies = movies.map(movie => {
@@ -27,8 +29,11 @@ function Movies({moviePosters}) {
     setMovies(updatedMovies)
   };
 
-  const movie = function showMovieDetails(id) {
-    return movies.filter(movie => movie.id === id)
+function showMovieDetails(id) {
+  setMovie([])
+  const filteredMovie = movies.filter(movie => movie.id === id)
+  setMovie([filteredMovie])
+  showHome(movie)
   };
 
   const allPosters = movies.map(poster => {
@@ -39,16 +44,24 @@ function Movies({moviePosters}) {
         id={poster.id} 
         increaseVote={increaseVote} 
         decreaseVote={decreaseVote} 
-        showMovieDetails={movie}
+        showMovieDetails={showMovieDetails}
         key={poster.id}/>
     )
   });
 
-  return (
+  if (home.length > 0) {
+    return (
+      <section className='MoviesContainer'>
+        <MovieDetails movieDetails={movieDetails} />
+      </section>
+    )
+  } else { 
+    return (
       <section className='MoviesContainer'>
         {allPosters}
       </section>
-  );
-}
+    )
+  };
+};
   
 export default Movies; 
