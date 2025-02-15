@@ -3,7 +3,7 @@ import MoviePoster from '../MoviePoster/MoviePoster'
 import { useState, useEffect } from 'react';
 import MovieDetails from '../MovieDetails/MovieDetails';
 
-function Movies({moviePosters}) {
+function Movies({moviePosters, movieDetails, showHome, home}) {
   const [movies, setMovies] = useState(moviePosters);
   const [movie, setMovie] = useState([])
 
@@ -30,8 +30,10 @@ function Movies({moviePosters}) {
   };
 
 function showMovieDetails(id) {
+  setMovie([])
   const filteredMovie = movies.filter(movie => movie.id === id)
   setMovie([filteredMovie])
+  showHome(movie)
   };
 
   const allPosters = movies.map(poster => {
@@ -47,13 +49,12 @@ function showMovieDetails(id) {
     )
   });
 
-
-  if (movie.length > 0) {
+  if (home.length > 0) {
     return (
       <section className='MoviesContainer'>
-        <MovieDetails movieInfo={movie} />
+        <MovieDetails movieDetails={movieDetails} />
       </section>
-    ) 
+    )
   } else { 
     return (
       <section className='MoviesContainer'>
