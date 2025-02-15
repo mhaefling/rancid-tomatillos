@@ -1,6 +1,6 @@
 import './MoviesContainer.css';
-import MoviePoster from '../MoviePoster/MoviePoster'
 import { useState, useEffect } from 'react';
+import MoviePoster from '../MoviePoster/MoviePoster'
 import MovieDetails from '../MovieDetails/MovieDetails';
 
 function Movies({moviePosters, movieDetails, showHome, home}) {
