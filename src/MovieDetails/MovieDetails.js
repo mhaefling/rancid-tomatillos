@@ -19,7 +19,9 @@ function MovieDetails({movieDetails}) {
       <img className="MovieImage" src={movieDetails.backdrop_path} />
       <div className="MovieAttributes">
         <h2>{movieDetails.title}</h2>
-        {movieGenres}
+        <div className="GenreContainer">
+          {movieGenres}
+        </div>
         <br />
         <p className="MovieOverview">{movieDetails.overview}</p>
       </div>
