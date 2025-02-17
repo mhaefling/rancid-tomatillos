@@ -7,16 +7,15 @@
     flex-direction: column;
 } 
 
-.posterImage {
+.MoviePoster_image {
     display: block;
     width: 100%;
     height: auto;
     border-radius: 8px 8px 0px 0px;
     margin-bottom: -8px;
-    transition-duration: 0.4s;
 }
 
-p {
+.MoviePoster_votes {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,12 +28,12 @@ p {
     background: white;
 }
 
-.voteButton, img {
+.MoviePoster_voteIcon {
     height: 15px;
     width: 15px;
 }
 
 button {
     border: none;
-    background-color: transparent;   
+    background-color: transparent; 
 }

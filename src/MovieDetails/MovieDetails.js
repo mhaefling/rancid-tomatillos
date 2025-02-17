@@ -3,12 +3,12 @@ import './MovieDetails.css';
 function MovieDetails({movieDetails}) {
 
   if(!movieDetails || !movieDetails.genre_ids) { 
-    return (<p className="MovieGenre">Loading movie genres...</p>)
+    return (<p className="MovieDetails_genre">Loading movie genres...</p>)
   }
 
   const movieGenres = movieDetails.genre_ids.map(genre => {
     return (
-    <p className="MovieGenre">
+    <p className="MovieDetails_genre">
       {genre}
     </p>
     )
@@ -16,14 +16,13 @@ function MovieDetails({movieDetails}) {
 
   return (
     <section className='MovieDetails'>
-      <img className="MovieImage" src={movieDetails.backdrop_path} />
-      <div className="MovieAttributes">
-        <h2>{movieDetails.title}</h2>
-        <div className="GenreContainer">
+      <img className="MovieDetails_image" src={movieDetails.backdrop_path} />
+      <div className="MovieDetails_attributes">
+        <h2 className="MovieDetails_title">{movieDetails.title}</h2>
+        <div className="MovieDetails_genreList">
           {movieGenres}
         </div>
-        <br />
-        <p className="MovieOverview">{movieDetails.overview}</p>
+        <p className="MovieDetails_overview">{movieDetails.overview}</p>
       </div>
     </section>
   );

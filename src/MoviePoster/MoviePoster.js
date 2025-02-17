@@ -6,18 +6,27 @@ function MoviePoster({posterImage, voteCount, id, submitVote, showMovieDetails})
   
   return (
     <section className='MoviePoster'>
-      <button onClick={() => showMovieDetails(id)}>
-        <img className="posterImage" src={posterImage} />
+      <button className='MoviePoster_button' onClick={() => showMovieDetails(id)}>
+        <img className="MoviePoster_image" src={posterImage} alt="Movie Poster"/>
       </button>
-      <p>
-        <button onClick={() => submitVote(id, "up")}>
-          <img className="voteButton" src={upVote} />
+
+      <div className="MoviePoster_votes">
+        <button 
+          className="MoviePoster_voteButton"
+          onClick={() => submitVote(id, "up")}>
+
+          <img className="MoviePoster_voteIcon" src={upVote} alt="Upvote" />
         </button>
-        {voteCount}
-        <button onClick={() => submitVote(id, "down")}>
-          <img className="voteButton" src={downVote} /> 
+
+        <span className="MoviePoster_voteCount">{voteCount}</span>
+
+        <button 
+          className="MoviePoster_voteButton"
+          onClick={() => submitVote(id, "down")}>
+
+          <img className="MoviePoster_voteIcon" src={downVote} alt="Downvote" /> 
         </button>
-      </p>
+      </div>
     </section>
   );
 }
