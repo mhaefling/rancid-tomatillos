@@ -13,12 +13,12 @@ function MovieDetails({movieDetails}) {
   return (
     <section className='MovieDetails'>
       <img className="MovieImage" src={movieDetails.backdrop_path} />
-      <p className="MovieAttributes">
+      <div className="MovieAttributes">
         <h2>{movieDetails.title}</h2>
         {movieGenres}
         <br />
-        {movieDetails.overview}
-      </p>
+        <p className="MovieOverview">{movieDetails.overview}</p>
+      </div>
     </section>
   );
 }
