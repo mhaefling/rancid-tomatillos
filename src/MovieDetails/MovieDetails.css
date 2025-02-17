@@ -8,8 +8,8 @@
 .MovieImage {
     display: block;
     width: 100%;
-    height: 50%;
-    border-radius: 8px 8px 0px 0px;
+    height: 100%;
+    border-radius: 20px;
     margin-bottom: 0px;
 }
 
