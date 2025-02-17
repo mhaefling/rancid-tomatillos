@@ -1,33 +1,33 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import homeIcon from '../icons/home.png';
-
-// Example imports (for later):
-import moviePosters from '../data/movie_posters';
-import movieDetails from '../data/movie_details';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 
 function App() {
   const [home, setHome] = useState([])
+  const [movies, setMovies] = useState([])
 
-  function showHome(movie) {
-    setHome([movie])
-  }
+  function getMoviePosters() {
+    fetch('https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/')
+    .then(response => response.json())
+    .then(movies => setMovies(movies))
+    .catch(error => console.log(error.message))
+  } 
 
-  function hideHome() {
-    setHome([])
-  }
+  useEffect(() => {
+    getMoviePosters()    
+  }, [movies])
 
   if (home.length > 0) {
     return (
       <main className='App'>
         <header>
           <h1>rancid tomatillos</h1>
-            <button onClick={hideHome}>
+            <button onClick={() => setHome([])}>
               <img className="homeButton" src={homeIcon} />
             </button>
         </header>
-        <MoviesContainer moviePosters={moviePosters} movieDetails={movieDetails} showHome={showHome} home={home} />
+        <MoviesContainer movies={movies} setHome={setHome} home={home} />
       </main>
     )
   } else {
@@ -36,7 +36,7 @@ function App() {
         <header>
           <h1>rancid tomatillos</h1>
         </header>
-        <MoviesContainer moviePosters={moviePosters} movieDetails={movieDetails} showHome={showHome} home={home} />
+        <MoviesContainer movies={movies} setHome={setHome} home={home} />
       </main>
     )
   };

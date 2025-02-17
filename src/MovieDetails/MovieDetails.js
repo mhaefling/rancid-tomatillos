@@ -2,6 +2,10 @@ import './MovieDetails.css';
 
 function MovieDetails({movieDetails}) {
 
+  if(!movieDetails || !movieDetails.genre_ids) { 
+    return (<p className="MovieGenre">Loading movie genres...</p>)
+  }
+
   const movieGenres = movieDetails.genre_ids.map(genre => {
     return (
     <p className="MovieGenre">

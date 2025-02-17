@@ -3,37 +3,33 @@ import { useState, useEffect } from 'react';
 import MoviePoster from '../MoviePoster/MoviePoster'
 import MovieDetails from '../MovieDetails/MovieDetails';
 
-function Movies({moviePosters, movieDetails, showHome, home}) {
-  const [movies, setMovies] = useState(moviePosters);
-  const [movie, setMovie] = useState([])
+function Movies({movies, setHome, home}) {
+  const [movie, setMovie] = useState([{}])
 
-  function increaseVote(id) {
-    const updatedMovies = movies.map(movie => {
-      if (movie.id === id) {
-        return { ...movie, vote_count: movie.vote_count + 1 }
-      } else {
-        return { ...movie, movie }
-      };
-    });
-    setMovies(updatedMovies)
-  };
+  function submitVote(id, voteType) {
+    const vote = { vote_direction: `${voteType}` }
 
-  function decreaseVote(id) {
-    const updatedMovies = movies.map(movie => {
-      if (movie.id === id) {
-        return { ...movie, vote_count: movie.vote_count - 1 }
-      } else {
-        return { ...movie, movie }
-      };
-    });
-    setMovies(updatedMovies)
-  };
+    fetch(`https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json', 
+      }, 
+      body: JSON.stringify(vote),
+    })
+    .then(response => response.json())
+    .then(data => console.log('Successful vote: ', data))
+    .catch(error => console.log('Unsuccessful vote: ', error.message))
+  }
 
 function showMovieDetails(id) {
   setMovie([])
-  const filteredMovie = movies.filter(movie => movie.id === id)
-  setMovie([filteredMovie])
-  showHome(movie)
+
+  fetch(`https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/${id}`)
+    .then(response => response.json())
+    .then(movieInfo => setMovie(movieInfo))
+    .catch(error => console.log(error.message))
+
+  setHome([movie])
   };
 
   const allPosters = movies.map(poster => {
@@ -42,8 +38,7 @@ function showMovieDetails(id) {
         posterImage={poster.poster_path} 
         voteCount={poster.vote_count} 
         id={poster.id} 
-        increaseVote={increaseVote} 
-        decreaseVote={decreaseVote} 
+        submitVote={submitVote} 
         showMovieDetails={showMovieDetails}
         key={poster.id}/>
     )
@@ -52,7 +47,7 @@ function showMovieDetails(id) {
   if (home.length > 0) {
     return (
       <section className='MoviesContainer'>
-        <MovieDetails movieDetails={movieDetails} />
+        <MovieDetails movieDetails={movie} />
       </section>
     )
   } else { 
