@@ -4,8 +4,8 @@
     padding: 0px;
     margin: 0px 15px 0px 15px;
     margin-bottom: 30px;
+    flex-direction: column;
 } 
-
 
 .posterImage {
     display: block;
@@ -13,6 +13,20 @@
     height: auto;
     border-radius: 8px 8px 0px 0px;
     margin-bottom: 0px;
+
+}
+
+p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    margin: 0px;
+    padding: 8px;
+    font-size: .75em;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background: white;
 }
 
 .voteButton, img {
@@ -22,17 +36,5 @@
 
 button {
     border: none;
-    background-color: transparent;
-}
-
-p {
-    display: block;
-    color: black;
-    background-color: white;
-    margin: 0px;
-    padding: 8px;
-    justify-content: center;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    font-size: 1em;
+    background-color: transparent;   
 }
