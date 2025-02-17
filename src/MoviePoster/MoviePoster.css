@@ -21,7 +21,7 @@ p {
     justify-content: center;
     color: black;
     margin: 0px;
-    padding: 8px;
+    padding: 12px 8px 8px 8px;
     font-size: .75em;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
