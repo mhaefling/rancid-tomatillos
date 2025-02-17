@@ -3,18 +3,25 @@
     margin: 0px 15px;
     margin-bottom: 30px;
     text-align: center;
+    position: relative;
 }
 
 .MovieImage {
     display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
     border-radius: 20px;
     margin-bottom: 0px;
 }
 
 .MovieAttributes {
-    height: 25%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height:40%; 
+    background-color: white; 
+    padding: 10px;
+    box-sizing: border-box;    
 }
 
 h2 {
