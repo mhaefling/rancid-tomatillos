@@ -7,7 +7,7 @@ function MoviePoster({posterImage, voteCount, id, submitVote, showMovieDetails})
   return (
     <section className='MoviePoster'>
       <button className='MoviePoster_button' onClick={() => showMovieDetails(id)}>
-        <img className="MoviePoster_image" src={posterImage} alt="Movie Poster"/>
+        <img className="MoviePoster_thumbnail" src={posterImage} alt="Movie Poster"/>
       </button>
 
       <div className="MoviePoster_votes">

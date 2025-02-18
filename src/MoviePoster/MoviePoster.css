@@ -1,31 +1,40 @@
 .MoviePoster {
     flex: 1 1 calc(20% - 10px); 
+    flex-direction: column;
     max-width: calc(15% - 10px);
     padding: 0px;
-    margin: 0px 15px 0px 15px;
+    margin: 15px;
     margin-bottom: 30px;
-    flex-direction: column;
+    transition: all 150ms;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
 } 
 
-.MoviePoster_image {
+.MoviePoster:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.19);
+    transform: scale(0.97);
+}
+
+.MoviePoster_thumbnail {
     display: block;
+    border-radius: 8px 8px 0px 0px;
+    border: none;
+    margin-bottom: -4px;
     width: 100%;
     height: auto;
-    border-radius: 8px 8px 0px 0px;
-    margin-bottom: -8px;
 }
 
 .MoviePoster_votes {
+    border: none;
+    border-radius: 0px 0px 8px 8px;
     display: flex;
-    align-items: center;
     justify-content: center;
     color: black;
-    margin: 0px;
     padding: 12px 8px 8px 8px;
     font-size: .75em;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
     background: white;
+    width: auto;
 }
 
 .MoviePoster_voteIcon {
@@ -33,7 +42,11 @@
     width: 15px;
 }
 
-button {
+.MoviePoster_voteIcon:active {
+    transform: scale(0.75);
+}
+
+.MoviePoster_voteButton {
     border: none;
     background-color: transparent; 
 }
