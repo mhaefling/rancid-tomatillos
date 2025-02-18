@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  }
+}
 
 body {
   background-color: #3e49b1;
@@ -27,7 +27,12 @@ p {
   color: white;
 }
 
-.homeButton {
-  height: 45px;
-  width: 45px;
+.homeIcon {
+  background-color: transparent;
+  border: none;
+}
+
+.homeIcon img {
+  height: 65px;
+  width: auto;
 }

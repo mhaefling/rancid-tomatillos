@@ -23,9 +23,12 @@ function App() {
       <main className='App'>
         <header>
           <h1>rancid tomatillos</h1>
-            <button onClick={() => setHome([])}>
-              <img className="homeButton" src={homeIcon} />
-            </button>
+          <button className='homeIcon'> 
+            <img src={homeIcon} 
+              alt="Home icon" 
+              onClick={() => setHome([])} 
+            />
+          </button>
         </header>
         <MoviesContainer movies={movies} setHome={setHome} home={home} />
       </main>
