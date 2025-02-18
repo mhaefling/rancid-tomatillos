@@ -6,7 +6,7 @@
     position: relative;
 }
 
-.MovieImage {
+.MovieDetails_image {
     display: block;
     width: 100%;
     height: auto;
@@ -14,22 +14,25 @@
     margin-bottom: 0px;
 }
 
-.MovieAttributes {
+.MovieDetails_attributes {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height:40%; 
+    height:41%; 
     background-color: white; 
+    /* JB: added opacity below because I think it looks better... */
+    opacity: .85;
     padding: 5px;
     box-sizing: border-box; 
     border-radius: 0 0 20px 20px;  
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;   
+    justify-content: center;
+    align-items: center; 
+    flex-wrap: wrap;  
 }
 
-h2 {
+.MovieDetails_title {
     padding: 20px;
     color: #3e49b1;
     text-align: center;
@@ -37,14 +40,25 @@ h2 {
     font-size: 1.75em;
 }
 
-.MovieGenre {
+.MovieDetails_genreList {
+    padding: 10px
+}
+
+.MovieDetails_genre {
     display:inline-block;
     background-color: #97c2ec;
     color: white;
     border-radius: 8px;
+    padding: 10px 8px;
     margin: 5px;
     font-size: .9em;
     font-weight: bold;
     line-height: 1em;
+    flex-shrink: 0;
 }
 
+.MovieDetails_overview {
+    color: black;
+    margin: 0;
+    padding: 10px;
+}
