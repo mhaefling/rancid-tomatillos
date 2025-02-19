@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     getMoviePosters()    
-  }, [movies])
+  }, [])
 
   if (home.length > 0) {
     return (
