@@ -8,7 +8,7 @@ function MovieDetails({movieDetails}) {
 
   const movieGenres = movieDetails.genre_ids.map(genre => {
     return (
-    <p className="MovieDetails_genre">
+    <p className="MovieDetails_genre" key={genre}>
       {genre}
     </p>
     )
