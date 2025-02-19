@@ -27,18 +27,20 @@ function Movies({setHome, home}) {
       body: JSON.stringify({ vote_direction: `${voteType}` }),
     })
     .then(response => response.json())
-    .then(data => {
-      const updatedMovies = movies.map((movie) => {
-        if (movie.id === id) {
-          return data
-        } else {
-          return movie
-        }
-      })
-      setMovies(updatedMovies)
-    })
+    .then(data => updateMovies(id, data))
     .catch(error => console.log('Unsuccessful Vote: ', error.message))
   };
+
+  function updateMovies(id, updatedMovie) {
+    const updatedMovies = movies.map((movie) => {
+      if (movie.id === id) {
+        return updatedMovie
+      } else {
+        return movie
+      }
+    })
+    setMovies(updatedMovies)
+  }
 
 function showMovieDetails(id) {
   setMovie([])
