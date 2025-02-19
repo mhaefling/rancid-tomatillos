@@ -14,11 +14,11 @@ function Movies({setHome, home}) {
     .then(response => response.json())
     .then(movies => setMovies(movies))
     .catch(error => console.log(error.message))
-  } 
+  };
 
   useEffect(() => {
     getMoviePosters()    
-  }, [])
+  }, []);
 
   function submitVote(id, voteType) {
     fetch(`https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/${id}`, {
@@ -37,20 +37,20 @@ function Movies({setHome, home}) {
         return updatedMovie
       } else {
         return movie
-      }
-    })
+      };
+    });
     setMovies(updatedMovies)
-  }
+  };
 
 function showMovieDetails(id) {
-  setMovie([])
+  setMovie([]);
 
   fetch(`https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/${id}`)
     .then(response => response.json())
     .then(movieInfo => setMovie(movieInfo))
-    .catch(error => console.log(error.message))
+    .catch(error => console.log(error.message));
 
-  setHome([movie])
+  setHome([movie]);
   };
 
   const allPosters = movies.map(poster => {

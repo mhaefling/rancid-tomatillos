@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import homeIcon from '../icons/home.png';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 
