@@ -3,23 +3,42 @@ import { useState, useEffect } from 'react';
 import MoviePoster from '../MoviePoster/MoviePoster'
 import MovieDetails from '../MovieDetails/MovieDetails';
 
-function Movies({movies, setHome, home}) {
+function Movies({setHome, home}) {
+
+  const [movies, setMovies] = useState([])
   const [movie, setMovie] = useState([{}])
 
-  function submitVote(id, voteType) {
-    const vote = { vote_direction: `${voteType}` }
 
+  function getMoviePosters() {
+    fetch('https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/')
+    .then(response => response.json())
+    .then(movies => setMovies(movies))
+    .catch(error => console.log(error.message))
+  } 
+
+  useEffect(() => {
+    getMoviePosters()    
+  }, [])
+
+  function submitVote(id, voteType) {
     fetch(`https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/${id}`, {
       method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json', 
-      }, 
-      body: JSON.stringify(vote),
+      headers: { 'Content-Type': 'application/json' }, 
+      body: JSON.stringify({ vote_direction: `${voteType}` }),
     })
     .then(response => response.json())
-    .then(data => console.log('Successful vote: ', data))
-    .catch(error => console.log('Unsuccessful vote: ', error.message))
-  }
+    .then(data => {
+      const updatedMovies = movies.map((movie) => {
+        if (movie.id === id) {
+          return data
+        } else {
+          return movie
+        }
+      })
+      setMovies(updatedMovies)
+    })
+    .catch(error => console.log('Unsuccessful Vote: ', error.message))
+  };
 
 function showMovieDetails(id) {
   setMovie([])
