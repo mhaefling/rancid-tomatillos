@@ -1,18 +1,35 @@
+import { useState, useEffect } from 'react';
 import './MovieDetails.css';
 
-function MovieDetails({movieDetails}) {
+function MovieDetails({ movieid, setHome }) {
+  const [movieDetails, setMovieDetails] = useState(null);
 
-  if(!movieDetails || !movieDetails.genre_ids) { 
-    return (<p className="MovieDetails_genre">Loading movie genres...</p>)
+  useEffect(() => {
+    function showMovieDetails(id) {
+      fetch(`https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/${id}`)
+        .then(response => response.json())
+        .then(movieInfo => {
+          setMovieDetails(movieInfo);
+          setHome([movieInfo]); 
+        })
+        .catch(error => console.log(error.message));
+    }
+
+    if (movieid) {
+      showMovieDetails(movieid);
+    }
+
+  }, [movieid, setHome]); // Dependency array ensures the effect runs when movieid or setHome changes
+
+  if (!movieDetails || !movieDetails.genre_ids) { 
+    return <p className="MovieDetails_genre">Loading movie genres...</p>;
   }
 
-  const movieGenres = movieDetails.genre_ids.map(genre => {
-    return (
+  const movieGenres = movieDetails.genre_ids.map(genre => (
     <p className="MovieDetails_genre" key={genre}>
       {genre}
     </p>
-    )
-  });
+  ));
 
   return (
     <section className='MovieDetails'>
