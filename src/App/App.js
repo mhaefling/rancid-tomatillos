@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HeaderContainer from '../HeaderContainer/HeaderContainer';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
+import MovieDetails from '../MovieDetails/MovieDetails';
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
       <HeaderContainer setHome={setHome} home={home} />
       <Routes>
         <Route path="/" element={<MoviesContainer setHome={setHome} home={home} />} />
-        <Route path="/movie/:id" element={<MoviesContainer setHome={setHome} home={home} />} />
+        <Route path="/movie/:movieid" element={<MoviesContainer />} />
       </Routes>
     </main>
   )

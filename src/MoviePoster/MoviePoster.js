@@ -1,23 +1,19 @@
 import './MoviePoster.css';
 import upVote from '../icons/upvote.png';
 import downVote from '../icons/downvote.png';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-function MoviePoster({posterImage, voteCount, id, submitVote, showMovieDetails}) {
-  
+function MoviePoster({ posterImage, voteCount, id, submitVote }) {
   return (
     <section className='MoviePoster'>
-      <button className='MoviePoster_button' onClick={() => showMovieDetails(id)}>
-        <Link to={`/movie/${id}`}>
-          <img className="MoviePoster_thumbnail" src={posterImage} alt="Movie Poster"/>
-        </Link>
-      </button>
+      <NavLink to={`/movie/${id}`}>
+        <img className="MoviePoster_thumbnail" src={posterImage} alt="Movie Poster" />
+      </NavLink>
 
       <div className="MoviePoster_votes">
         <button 
           className="MoviePoster_voteButton"
           onClick={() => submitVote(id, "up")}>
-
           <img className="MoviePoster_voteIcon" src={upVote} alt="Upvote" />
         </button>
 
@@ -26,8 +22,7 @@ function MoviePoster({posterImage, voteCount, id, submitVote, showMovieDetails})
         <button 
           className="MoviePoster_voteButton"
           onClick={() => submitVote(id, "down")}>
-
-          <img className="MoviePoster_voteIcon" src={downVote} alt="Downvote" /> 
+          <img className="MoviePoster_voteIcon" src={downVote} alt="Downvote" />
         </button>
       </div>
     </section>
