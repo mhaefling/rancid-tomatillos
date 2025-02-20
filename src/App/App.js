@@ -14,7 +14,7 @@ function App() {
       <HeaderContainer setHome={setHome} home={home} />
       <Routes>
         <Route path="/" element={<MoviesContainer setHome={setHome} home={home} />} />
-        <Route path="/:movieid" element={<MoviesContainer setHome={setHome} home={home} />} />
+        <Route path="/:movieid" element={<MoviesContainer />} />
       </Routes>
     </main>
   )

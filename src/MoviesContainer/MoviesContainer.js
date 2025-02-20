@@ -1,9 +1,11 @@
 import './MoviesContainer.css';
 import { useState, useEffect } from 'react';
-import MoviePoster from '../MoviePoster/MoviePoster'
+import MoviePoster from '../MoviePoster/MoviePoster';
 import MovieDetails from '../MovieDetails/MovieDetails';
+import { useParams } from 'react-router-dom';
 
 function Movies({setHome, home}) {
+  const { movieid } = useParams();
 
 
   const [movies, setMovies] = useState([])
