@@ -14,6 +14,10 @@ describe('Movie Poster spec', () => {
     
     cy.get('.MoviePoster').should('have.length', 4);
 
+    cy.get('.MoviePoster_voteIcon').first().should('have.attr', 'alt', 'Upvote');
+    cy.get('.MoviePoster_voteIcon').last().should('have.attr', 'alt', 'Downvote');
+
+
     cy.get('.MoviePoster').first()
       .find('.MoviePoster_thumbnail')
       .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//qJ2tW6WMUDux911r6m7haRef0WH.jpg'); 
