@@ -1,37 +1,23 @@
 import './App.css';
 import { useState } from 'react';
-import homeIcon from '../icons/home.png';
+import { Routes, Route } from 'react-router-dom';
+import HeaderContainer from '../HeaderContainer/HeaderContainer';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
+import MovieDetails from '../MovieDetails/MovieDetails';
 
 function App() {
+
   const [home, setHome] = useState([])
 
-  if (home.length > 0) {
-    return (
-      <main className='App'>
-        <header>
-          <h1>rancid tomatillos</h1>
-          <button className='homeIcon'> 
-            <img src={homeIcon} 
-              alt="Home icon" 
-              onClick={() => setHome([])} 
-            />
-          </button>
-        </header>
-        <MoviesContainer setHome={setHome} home={home} />
-      </main>
-    )
-  } else {
-    return (
-      <main className='App'>
-        <header>
-          <h1>rancid tomatillos</h1>
-        </header>
-        <MoviesContainer setHome={setHome} home={home} />
-      </main>
-    )
-  };
-
+  return (
+    <main className='App'>
+      <HeaderContainer setHome={setHome} home={home} />
+      <Routes>
+        <Route path="/" element={<MoviesContainer setHome={setHome} home={home} />} />
+        <Route path="/movie/:movieid" element={<MoviesContainer />} />
+      </Routes>
+    </main>
+  )
 };
 
 export default App;

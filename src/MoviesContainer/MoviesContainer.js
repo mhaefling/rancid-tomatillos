@@ -1,13 +1,13 @@
 import './MoviesContainer.css';
 import { useState, useEffect } from 'react';
-import MoviePoster from '../MoviePoster/MoviePoster'
+import MoviePoster from '../MoviePoster/MoviePoster';
 import MovieDetails from '../MovieDetails/MovieDetails';
+import { useParams } from 'react-router-dom';
 
 function Movies({setHome, home}) {
+  const { movieid } = useParams();
 
   const [movies, setMovies] = useState([])
-  const [movie, setMovie] = useState([{}])
-
 
   function getMoviePosters() {
     fetch('https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/')
@@ -42,17 +42,6 @@ function Movies({setHome, home}) {
     setMovies(updatedMovies)
   };
 
-function showMovieDetails(id) {
-  setMovie([]);
-
-  fetch(`https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/${id}`)
-    .then(response => response.json())
-    .then(movieInfo => setMovie(movieInfo))
-    .catch(error => console.log(error.message));
-
-  setHome([movie]);
-  };
-
   const allPosters = movies.map(poster => {
     return (
       <MoviePoster 
@@ -60,15 +49,15 @@ function showMovieDetails(id) {
         voteCount={poster.vote_count} 
         id={poster.id} 
         submitVote={submitVote} 
-        showMovieDetails={showMovieDetails}
-        key={poster.id}/>
+        key={poster.id}
+      />
     )
   });
 
-  if (home.length > 0) {
+  if (movieid) {
     return (
       <section className='MoviesContainer'>
-        <MovieDetails movieDetails={movie} />
+        <MovieDetails movieid={movieid} setHome={setHome} />
       </section>
     )
   } else { 
@@ -80,4 +69,4 @@ function showMovieDetails(id) {
   };
 };
   
-export default Movies; 
+export default Movies;
