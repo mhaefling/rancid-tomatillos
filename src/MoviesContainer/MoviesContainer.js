@@ -5,6 +5,7 @@ import MovieDetails from '../MovieDetails/MovieDetails';
 
 function Movies({setHome, home}) {
 
+
   const [movies, setMovies] = useState([])
   const [movie, setMovie] = useState([{}])
 
