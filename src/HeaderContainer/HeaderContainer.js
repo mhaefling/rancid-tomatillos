@@ -1,32 +1,27 @@
-import './HeaderContainer.css'
+import './HeaderContainer.css';
 import homeIcon from '../icons/home.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function HeaderContainer({ setHome, home }) {
     const handleResetHome = () => {
         setHome([]);
     };
 
-    if (home.length > 0) {
-        return (
-            <header>
-                <h1>rancid tomatillos</h1>
-                    <button className='homeIcon'> 
-                        <Link to={"/"} onClick={handleResetHome}>
-                            <img src={homeIcon} 
-                                alt="Home icon" 
-                            />
-                        </Link>
-                    </button>
-            </header>
-        )
-    } else {
-        return (
-            <header>
-                <h1>rancid tomatillos</h1>
-            </header>
-        )
-    }
-};
+    const location = useLocation();
 
-export default HeaderContainer
+    return (
+        <header>
+            <h1>rancid tomatillos</h1>
+            {/* Show the home icon if we are on the MovieDetails page */}
+            {location.pathname.includes("/movie/")  && (
+                <button className='homeIcon'>
+                    <Link to={"/"} onClick={handleResetHome}>
+                        <img src={homeIcon} alt="Home icon" />
+                    </Link>
+                </button>
+            )}
+        </header>
+    );
+}
+
+export default HeaderContainer;
