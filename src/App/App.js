@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HeaderContainer from '../HeaderContainer/HeaderContainer';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
-import MovieDetails from '../MovieDetails/MovieDetails';
 
 function App() {
 

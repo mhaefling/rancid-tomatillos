@@ -12,14 +12,14 @@ function MovieDetails({ movieid, setHome }) {
           setMovieDetails(movieInfo);
           setHome([movieInfo]); 
         })
-        .catch(error => console.log(error.message));
-    }
+        .catch(error => console.log("Error getting Movie Details: ", error.message));
+    };
 
     if (movieid) {
       showMovieDetails(movieid);
-    }
+    };
 
-  }, [movieid, setHome]); // Dependency array ensures the effect runs when movieid or setHome changes
+  }, [movieid, setHome]);
 
   if (!movieDetails || !movieDetails.genre_ids) { 
     return <p className="MovieDetails_genre">Loading movie genres...</p>;
@@ -43,6 +43,6 @@ function MovieDetails({ movieid, setHome }) {
       </div>
     </section>
   );
-}
+};
 
 export default MovieDetails;
