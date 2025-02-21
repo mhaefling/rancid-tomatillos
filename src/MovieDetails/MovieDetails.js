@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './MovieDetails.css';
 
-function MovieDetails({ movieid, setHome }) {
+function MovieDetails({ movieid }) {
   const [movieDetails, setMovieDetails] = useState(null);
 
   useEffect(() => {
@@ -13,13 +13,12 @@ function MovieDetails({ movieid, setHome }) {
       fetch(`https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/${id}`)
         .then(response => response.json())
         .then(movieInfo => {
-          setMovieDetails(movieInfo);
-          setHome([movieInfo]); 
+          setMovieDetails(movieInfo); 
         })
         .catch(error => console.log("Error getting Movie Details: ", error.message));
     };
     
-  }, [movieid, setHome]);
+  }, [movieid]);
 
   if (!movieDetails || !movieDetails.genre_ids) { 
     return <p className="MovieDetails_genre">Loading movie genres...</p>;
