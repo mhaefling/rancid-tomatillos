@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import MoviePoster from '../MoviePoster/MoviePoster';
 import MovieDetails from '../MovieDetails/MovieDetails';
 
-function Movies({setHome, home}) {
+function Movies() {
   const { movieid } = useParams();
   const [movies, setMovies] = useState([])
 
@@ -56,7 +56,7 @@ function Movies({setHome, home}) {
   if (movieid) {
     return (
       <section className='MoviesContainer'>
-        <MovieDetails movieid={movieid} setHome={setHome} />
+        <MovieDetails movieid={movieid} />
       </section>
     )
   } else { 
