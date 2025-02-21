@@ -1,14 +1,41 @@
-# Rancid Tomatillos - Starter Repo
+# Rancid Tomatillos
 
-## [The project spec for Rancid Tomatillos can be found here.](https://curriculum.turing.edu/module3/projects/rancid-tomatillos)
+### [The deployed app can be found here.](https://https://rancid-tomatillos-u5bo.onrender.com/)
 
-## Set Up
-1.  Fork this repo
-2.  Clone **and rename** this repo: `git clone [remote-address] [new-name]`  
-   For example: `git clone git@github.com:turingschool-examples/rancid-tomatillos-starter.git rancid-tomatillos`
-4.  `cd` into the directory
-5.  Install necessary dependencies with `npm install`
-6.  Run your React app with `npm start`
-7.  Go to `http://localhost:3000/` and you should see a page with some starter elements
-8.  Enter `control + c` in your terminal to stop running the React app at any time
-9. To run Cypress tests, use `npx cypress open`
+## Overview 
+Rancid Tomatillos is a React-based web application designed to mimic a movie review platform.
+
+This project was planned using Excalidraw and GitHub projects, built using React, tested using Cypress, and deployed using Render, all on macOS. 
+
+## Installation Instructions
+-   First, clone the repository to your local machine using the following command: `git clone https://github.com/mhaefling/rancid-tomatillos.git`
+-   Navigate into the project directory: `cd rancid-tomatillos`
+-   Install the required dependencies into the project directory: `npm install`
+-   Start the development server: `npm start`
+-   Once the server is running, navigate to `http://localhost:3000`
+-   To run Cypress tests, use `npx cypress open`
+-   Enter `control + c` in your terminal to stop running the React server at any time
+
+## Usage Instructions
+
+### 1. View All Movies
+![Screenshot of app landing page](assets/images/app_landing.png)
+- When you first visit the app, you'll be shown a list of all available movies.
+- Each movie will display the following information:
+  - The movie poster
+  - The number of upvotes for each movie
+
+### 2. Upvoting and Downvoting
+![Screenshot of movie card for Wild Robot](assets/images/movie_poster_closeup.png)
+- Each movie card will have **Upvote** and **Downvote** buttons.
+- **Upvote**: Click the up arrow on a movie card to increase its vote count by 1. The movie’s vote will update instantly on the card.
+- **Downvote**: Click the down arrow on a movie card to decrease its vote count by 1. The movie’s vote will update instantly on the card.
+
+### 3. View Movie Details
+![Screenshot of movie poster details for Wild Robot](assets/images/movie_details_view.png)
+- You can click on any movie to view more details about it.
+- The movie details page will display:
+  - The movie’s backdrop image
+  - List of genres
+  - Overview
+  - To return to the main view of all movies, click the **Home button** or back arrow on your browser. 
