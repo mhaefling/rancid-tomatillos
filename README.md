@@ -1,6 +1,6 @@
 # Rancid Tomatillos
 
-### [The deployed app can be found here.](https://https://rancid-tomatillos-u5bo.onrender.com/)
+***Check out the app [here.](https://https://rancid-tomatillos-u5bo.onrender.com/)***
 
 ## Overview 
 Rancid Tomatillos is a React-based web application designed to mimic a movie review platform.
@@ -16,7 +16,7 @@ This project was planned using Excalidraw and GitHub projects, built using React
 -   To run Cypress tests, use `npx cypress open`
 -   Enter `control + c` in your terminal to stop running the React server at any time
 
-## Usage Instructions
+## App Functionality
 
 ### 1. View All Movies
 ![Screenshot of app landing page](assets/images/app_landing.png)
@@ -38,4 +38,9 @@ This project was planned using Excalidraw and GitHub projects, built using React
   - The movie’s backdrop image
   - List of genres
   - Overview
-  - To return to the main view of all movies, click the **Home button** or back arrow on your browser. 
+  - To return to the main view of all movies, click the **Home button** or back arrow on your browser.
+
+ ----
+*Author Github Pages:* 
+-  [Matt Haefling](https://github.com/mhaefling) 
+-  [Jillian Bleggi](https://github.com/jbleggi)
