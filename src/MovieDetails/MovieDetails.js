@@ -5,6 +5,10 @@ function MovieDetails({ movieid, setHome }) {
   const [movieDetails, setMovieDetails] = useState(null);
 
   useEffect(() => {
+    if (movieid) {
+      showMovieDetails(movieid);
+    };
+
     function showMovieDetails(id) {
       fetch(`https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/${id}`)
         .then(response => response.json())
@@ -14,11 +18,7 @@ function MovieDetails({ movieid, setHome }) {
         })
         .catch(error => console.log("Error getting Movie Details: ", error.message));
     };
-
-    if (movieid) {
-      showMovieDetails(movieid);
-    };
-
+    
   }, [movieid, setHome]);
 
   if (!movieDetails || !movieDetails.genre_ids) { 

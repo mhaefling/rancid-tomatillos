@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import MoviePoster from '../MoviePoster/MoviePoster';
 import MovieDetails from '../MovieDetails/MovieDetails';
 
-function Movies({setHome, home}) {
+function Movies({setHome}) {
   const { movieid } = useParams();
   const [movies, setMovies] = useState([])
 

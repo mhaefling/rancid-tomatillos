@@ -10,9 +10,9 @@ function App() {
 
   return (
     <main className='App'>
-      <HeaderContainer setHome={setHome} home={home} />
+      <HeaderContainer setHome={setHome} />
       <Routes>
-        <Route path="/" element={<MoviesContainer setHome={setHome} home={home} />} />
+        <Route path="/" element={<MoviesContainer setHome={setHome} />} />
         <Route path="/movie/:movieid" element={<MoviesContainer />} />
       </Routes>
     </main>

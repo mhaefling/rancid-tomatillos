@@ -2,7 +2,7 @@ import './HeaderContainer.css';
 import homeIcon from '../icons/home.png';
 import { Link, useLocation } from 'react-router-dom';
 
-function HeaderContainer({ setHome, home }) {
+function HeaderContainer({ setHome }) {
   const handleResetHome = () => {
     setHome([]);
   };
