@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './MovieDetails.css';
 
 function MovieDetails({ movieid }) {
   const [movieDetails, setMovieDetails] = useState(null);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate(); 
+
 
   useEffect(() => {
     if (movieid) {
@@ -11,11 +15,20 @@ function MovieDetails({ movieid }) {
 
     function showMovieDetails(id) {
       fetch(`https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/${id}`)
-        .then(response => response.json())
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Movie not found');
+          }
+          return response.json();
+        })
         .then(movieInfo => {
           setMovieDetails(movieInfo); 
+          setError(null);
         })
-        .catch(error => console.log("Error getting Movie Details: ", error.message));
+        .catch((error) => {
+          setError(error.message);
+          navigate('/404');
+        });
     };
     
   }, [movieid]);

@@ -1,0 +1,10 @@
+.NotFound-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.NotFound-header {
+  color: white;
+  text-align: center;
+}

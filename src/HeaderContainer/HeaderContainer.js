@@ -4,11 +4,12 @@ import { Link, useLocation } from 'react-router-dom';
 
 function HeaderContainer() {
   const location = useLocation();
+  const showHomeIcon = location.pathname !== "/";
 
   return (
     <header>
       <h1>rancid tomatillos</h1>
-        {location.pathname.includes("/movie/")  && (
+        {showHomeIcon  && (
           <button className='homeIcon'>
             <Link to={"/"}>
               <img src={homeIcon} alt="Home icon" />
