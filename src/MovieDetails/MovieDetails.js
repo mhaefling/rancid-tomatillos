@@ -31,7 +31,10 @@ function MovieDetails({ movieid }) {
         });
     };
     
-  }, [movieid]);
+  }, [movieid, navigate]);
+  if (error) {
+    return <p className="MovieDetails_error">{error}</p>;
+  }
 
   if (!movieDetails || !movieDetails.genre_ids) { 
     return <p className="MovieDetails_genre">Loading movie genres...</p>;
